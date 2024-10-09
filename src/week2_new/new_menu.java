@@ -1,7 +1,8 @@
-package week2;
+package week2_new;
+
 
 import java.util.*;
-public class Main {
+public class new_menu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("저장할 자료구조명을 입력해 주세요");
@@ -9,29 +10,46 @@ public class Main {
         switch (typeOfList) {
             case "List":
                 List<String> list = new ArrayList<String>();
-                listAdd(list);
-                System.out.println("[ List 으로 저장된 백종원 돼지고기 김치찌개 만들기 ]");
+                while (true){
+                    String sentence = sc.nextLine();
+                    if (sentence.equals("끝")){
+                        break;
+                    }
+                    list.add(sentence);
+
+                }
                 for (int i = 0; i < list.size(); i++) {
-                    System.out.println( (i+1)+". " + list.get(i));
+                    System.out.println(list.get(i));
+
                 }
                 break;
             case "Set":
-                Set<String> Set = new LinkedHashSet<String>();
-                setAdd(Set);
-                int count = 0;
-                System.out.println("[ Set 으로 저장된 백종원 돼지고기 김치찌개 만들기 ]");
-                for (String s : Set) {
+                Set<String> Set = new HashSet<String>();
 
-                    System.out.println((count+1)+". " +s);
-                    count++;
+
+                while (true){
+                    String sentence = sc.nextLine();
+                    System.out.println(sentence);
+                    if(sentence.equals("끝")){
+                        break;
+                    }
+                    Set.add(sentence);
+
                 }
                 break;
             case "Map":
                 Map<Integer,String> Map = new HashMap<>();
-                mapAdd(Map);
-                System.out.println("[ Map 으로 저장된 백종원 돼지고기 김치찌개 만들기 ]");
+                int n = 0;
+                while (true){
+                    String sentence = sc.nextLine();
+                    if(sentence.equals("끝")){
+                        break;
+                    }
+                    Map.put(n,sentence);
+                    n++;
+                }
                 for (int i = 0; i < Map.size(); i++) {
-                    System.out.println((i+1)+". " +Map.get(i));
+                    System.out.println(Map.get(i));
                 }
                 break;
         }
@@ -50,15 +68,11 @@ public class Main {
     }
     public static void setAdd(Set<String> set) {
         Scanner sc = new Scanner(System.in);
-        int i = 0;
         while (true){
-            i++;
             String sentence = sc.nextLine();
-
             if(sentence.equals("끝")){
                 break;
             }
-
             set.add(sentence);
 
         }
@@ -79,4 +93,3 @@ public class Main {
 
     }
 }
-
